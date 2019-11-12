@@ -5,6 +5,12 @@
 {% block body %}
 Katalogas: {{ controller_name }}
 
+    {% if controller_name == '/code'  %}
+     (Dockeryje)
+    {% else %}
+        Kažkur kitur
+    {% endif %}
+
     <a href="{{ path('home', {'student': "la ? & naujas domanas bas"}) }}">Pagrindinis</a>
 
 {% endblock %}
