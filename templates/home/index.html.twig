@@ -7,7 +7,7 @@
         <li class="list-group-item list-group-item-info">Studentai</li>
         {% for student in students %}
             <li class="list-group-item">
-            <a href="{{ path("student") }}?name={{ student.student|e}}&project={{ student.project|e}}">{{ student.student }}</a>
+            <a href="{{ path("student") }}?name={{ student.student|url_encode }}&project={{ student.project|url_encode }}">{{ student.student }}</a>
             {% for mentor in student.mentors %}
                 ( <span class="badge">Mentorius</span> {{ mentor }} )
                 </li>
@@ -37,7 +37,8 @@
                     </div>
                     <div>
                         <a target="_blank"
-                           href="http://{{ project.projectName|url_encode }}.projektai.nfqakademija.lt/">{{ project.projectName}}.projektai.nfqakademija.lt/</a>
+                           href="http://{{ project.projectName|url_encode }}.projektai.nfqakademija.lt/">{{ project.projectName }}
+                            .projektai.nfqakademija.lt/</a>
                         <span class="badge">Web</span>
                     </div>
                     <div>
