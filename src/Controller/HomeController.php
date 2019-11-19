@@ -7,7 +7,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-
     private function groupByStudents(array $projects)
     {
         $result = [];
@@ -26,19 +25,16 @@ class HomeController extends AbstractController
         }
         return $result;
     }
-
     /**
      * @Route("/", name="home")
      */
     public function index()
     {
-        $json = file_get_contents("https://hw1.nfq2019.online/students.json");
+        $json = file_get_contents("students.json");
         $data = json_decode($json, true);
         return $this->render('home/index.html.twig', [
-            'students' =>$this->groupByStudents($data),
-            'projects' =>$this->groupByTeam($data),
+            'students' => $this->groupByStudents($data),
+            'projects' => $this->groupByTeam($data),
         ]);
     }
-
-
 }

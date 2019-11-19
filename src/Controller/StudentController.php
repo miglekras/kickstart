@@ -11,7 +11,6 @@ class StudentController extends AbstractController
     /**
      * @Route("/student", name="student")
      */
-
     public function index(Request $request)
     {
         return $this->render('student/index.html.twig', [
@@ -19,5 +18,4 @@ class StudentController extends AbstractController
             'projectName' => $request->get('project')
         ]);
     }
-
 }
