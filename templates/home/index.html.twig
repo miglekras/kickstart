@@ -7,9 +7,9 @@
         <li class="list-group-item list-group-item-info">Studentai</li>
         {% for student in students %}
             <li class="list-group-item">
-            <a href="{{ path("student") }}?name={{ student.student|url_encode }}&project={{ student.project|url_encode }}">{{ student.student }}</a>
+            <a href="{{ path("student") }}?name={{ student.student|url_encode }}&project={{ student.project|url_encode }}">{{ student.student|e('html') }}</a>
             {% for mentor in student.mentors %}
-                ( <span class="badge">Mentorius</span> {{ mentor }} )
+                ( <span class="badge">Mentorius</span> {{ mentor|e('html') }} )
                 </li>
             {% endfor %}
         {% endfor %}
@@ -32,12 +32,12 @@
                 <h3>{{ project.teamName }}</h3>
                 <div class="panel panel-default">
                     <div>
-                        <a target="_blank" href="https://github.com/nfqakademija/{{ project.projectName|url_encode }}">github.com/nfqakademija/{{ project.projectName }}</a>
+                        <a target="_blank" href="https://github.com/nfqakademija/{{ project.projectName|url_encode }}">github.com/nfqakademija/{{ project.projectName|e('html') }}</a>
                         <span class="badge">GitHub</span>
                     </div>
                     <div>
                         <a target="_blank"
-                           href="http://{{ project.projectName|url_encode }}.projektai.nfqakademija.lt/">{{ project.projectName }}
+                           href="http://{{ project.projectName|url_encode }}.projektai.nfqakademija.lt/">{{ project.projectName|e('html') }}
                             .projektai.nfqakademija.lt/</a>
                         <span class="badge">Web</span>
                     </div>
