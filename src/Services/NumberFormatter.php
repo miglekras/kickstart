@@ -18,9 +18,6 @@ class NumberFormatter
         } elseif ($absNum < 1000 && $absNum >= 0) {
             $num = round($n, 2);
             return $num;
-        } elseif ($absNum < 1000 && $absNum >= 0) {
-            $num = round($n, 2);
-            return $num;
         }
     }
 }
